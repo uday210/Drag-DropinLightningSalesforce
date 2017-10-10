@@ -1,0 +1,20 @@
+<aura:component controller="StudentsData" >
+	   <ltng:require scripts="{!join(',', $Resource.jqueryjs,$Resource.jqueryUi)}"  afterScriptsLoaded="{!c.doinit}"/>
+			
+    <aura:attribute name="students" type="Stundent__c[]"/>
+    <aura:attribute name="bropped" type="boolean" default="true"/>
+    
+    <aura:handler name="change" value="{!v.bropped}" action="{!c.doaction}"/>
+
+<table id="sortable" class="slds-table slds-table_bordered slds-table_cell-buffer">
+  <aura:iteration items="{!v.students}" var="student">  
+  <tr class="slds-line-height_reset" style="cursor:pointer">
+      <td  class="ui-icon ui-icon-arrowthick-2-n-s" id="stu_roll">{!student.Roll_No__c}</td>     
+      <td class="ui-icon ui-icon-arrowthick-2-n-s">{!student.Name__c}</td>
+     <td class="ui-icon ui-icon-arrowthick-2-n-s" id="stu_id">{!student.Id}</td>
+
+      </tr>
+ 
+</aura:iteration>
+    </table>
+</aura:component>
